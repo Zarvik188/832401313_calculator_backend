@@ -3,14 +3,14 @@ const page = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>832401313 前后端分离计算器</title>
+<title>832401313 计算器</title>
 <style>
 :root{font-family:system-ui,"Microsoft YaHei",sans-serif;color:#eaf0ff;background:#0e1424}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#273657,#0e1424 42rem)}button,input{font:inherit}.shell{width:min(1080px,calc(100% - 32px));margin:auto;padding:42px 0 64px}.eyebrow{margin:0 0 8px;color:#91a9ff;font-size:12px;font-weight:700;letter-spacing:.18em}.hero{margin-bottom:24px}h1,h2,p{margin-top:0}h1{margin-bottom:8px;font-size:clamp(30px,6vw,54px);letter-spacing:-.04em}.subtitle{color:#aeb9cf;line-height:1.7}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.card{border:1px solid #2d3b5b;border-radius:22px;background:rgba(20,29,50,.92);box-shadow:0 20px 60px #0004;padding:22px}.display label{display:block;margin-bottom:8px;color:#93a4c9;font-size:13px}.display input{width:100%;border:1px solid #40527c;border-radius:13px;padding:16px;color:#f8fbff;background:#0e1629;font-size:21px;outline:0}.display input:focus{border-color:#91a9ff}.result{min-height:48px;padding-top:16px;color:#f8d889;font-size:32px;font-weight:700}.message{min-height:23px;color:#aeb9cf;font-size:13px}.error{color:#ff9a9a}.success{color:#8de0bd}.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.key{min-height:56px;border:1px solid #344565;border-radius:13px;color:#eef3ff;background:#1b2945;cursor:pointer;font-size:19px}.key:hover{background:#293b61}.op{color:#b9c7ff;background:#263664}.eq{color:#102032;background:#8de0bd;font-weight:800}.muted{color:#b7c2da;background:#152039;font-size:14px}.hint{margin:14px 0 0;color:#7e8eaf;font-size:12px}.heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}.heading h2{margin:0;font-size:23px}.small{border:1px solid #40527c;border-radius:9px;padding:7px 11px;color:#cbd6f4;background:transparent;cursor:pointer}.history{display:grid;gap:9px;max-height:540px;overflow:auto}.item{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid #2e3c5b;border-radius:13px;padding:12px;background:#151f36}.expr{margin-bottom:4px;color:#eef3ff;font-family:Consolas,monospace}.meta{color:#8392b1;font-size:11px}.del{border:0;color:#ff9a9a;background:transparent;cursor:pointer;font-size:12px}.empty{color:#8392b1;font-size:14px;line-height:1.7}@media(max-width:760px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <main class="shell">
-<section class="hero"><p class="eyebrow">SOFTWARE ENGINEERING PRACTICE</p><h1>前后端分离计算器</h1><p class="subtitle">表达式交给后端计算，成功记录保存到 D1 数据库。</p></section>
+<section class="hero"><p class="eyebrow">SOFTWARE ENGINEERING PRACTICE</p><h1>计算器</h1><p class="subtitle">表达式交给后端计算，成功记录保存到 D1 数据库。</p></section>
 <section class="grid">
 <div class="card">
 <div class="display"><label for="expression">表达式</label><input id="expression" placeholder="例如：(1 + 2) * 3" autocomplete="off"><div id="result" class="result">等待输入</div><div id="message" class="message"></div></div>
