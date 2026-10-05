@@ -30,6 +30,7 @@ python app.py
 | POST | `/api/calculate` | 后端计算表达式并保存成功记录 |
 | GET | `/api/history` | 查询历史记录 |
 | DELETE | `/api/history/<id>` | 删除指定历史记录 |
+| DELETE | `/api/history` | 清空全部历史记录 |
 
 计算请求示例：
 

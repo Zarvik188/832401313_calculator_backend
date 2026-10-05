@@ -36,3 +36,14 @@ def test_calculation_errors_are_returned_by_backend(tmp_path):
     assert response.status_code == 400
     assert response.get_json()["success"] is False
 
+
+def test_clear_history_deletes_all_records(tmp_path):
+    app = create_app(tmp_path / "test.db")
+    client = app.test_client()
+    client.post("/api/calculate", json={"expression": "1+2"})
+    client.post("/api/calculate", json={"expression": "3*4"})
+
+    response = client.delete("/api/history")
+    assert response.status_code == 200
+    assert client.get("/api/history").get_json()["history"] == []
+

@@ -101,6 +101,12 @@ def create_app(database_path: str | Path | None = None) -> Flask:
             return jsonify({"success": False, "message": "History record not found"}), 404
         return jsonify({"success": True, "message": "History record deleted"})
 
+    @app.delete("/api/history")
+    def clear_history():
+        with get_connection(app.config["DATABASE_PATH"]) as connection:
+            connection.execute("DELETE FROM calculation_history")
+        return jsonify({"success": True, "message": "All history records deleted"})
+
     return app
 
 
