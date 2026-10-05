@@ -12,6 +12,8 @@ from calculator import CalculationError, evaluate_expression, result_for_json
         ("-5+8", 3),
         ("3*-2", -6),
         ("0.5 + .25", 0.75),
+        ("50%", 0.5),
+        ("200*5%", 10),
     ],
 )
 def test_expression_calculation(expression, expected):

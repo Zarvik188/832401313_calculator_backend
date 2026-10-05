@@ -1,6 +1,6 @@
 """A small, safe mathematical expression parser.
 
-The parser accepts numbers, parentheses, +, -, *, and /.  It never executes
+The parser accepts numbers, parentheses, +, -, *, /, and postfix %.  It never executes
 the input as Python code, so user input cannot become arbitrary code.
 """
 
@@ -12,7 +12,7 @@ class CalculationError(ValueError):
     """An error that can be shown to the calculator user."""
 
 
-TOKEN_RE = re.compile(r"\d+(?:\.\d*)?|\.\d+|[()+\-*/]")
+TOKEN_RE = re.compile(r"\d+(?:\.\d*)?|\.\d+|[()+\-*/%]")
 
 
 def tokenize(expression: str) -> list[str]:
@@ -96,15 +96,21 @@ class Parser:
             if self.current() != ")":
                 raise CalculationError("Missing closing parenthesis")
             self.take()
-            return result
-        if token is None or token in {")", "+", "-", "*", "/"
+            return self.parse_percent(result)
+        if token is None or token in {")", "+", "-", "*", "/", "%"
         }:
             raise CalculationError("A number or opening parenthesis was expected")
         self.take()
         try:
-            return Decimal(token)
+            return self.parse_percent(Decimal(token))
         except InvalidOperation as exc:
             raise CalculationError("Invalid number") from exc
+
+    def parse_percent(self, value: Decimal) -> Decimal:
+        while self.current() == "%":
+            self.take()
+            value /= Decimal(100)
+        return value
 
 
 def evaluate_expression(expression: str) -> Decimal:

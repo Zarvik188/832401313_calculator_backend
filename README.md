@@ -32,7 +32,7 @@ python app.py
 | DELETE | `/api/history/<id>` | 删除指定历史记录 |
 | DELETE | `/api/history` | 清空全部历史记录 |
 
-计算请求示例：
+解析器支持基本四则运算、括号、小数、一元正负号和百分号后缀（如 `50%`）。计算请求示例：
 
 ```json
 {"expression":"(1+2)*3"}
